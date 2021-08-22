@@ -25,9 +25,9 @@
                 v-for="option in question.options" 
                 :key="option.index"
                 class="question-option"
-                @click="selectedAnswer(option.option)"
+                @click="selectedAnswer(question.id)"
                 >
-                    <li>
+                    <li :class="option.option.iteration">
                         {{ option.option }}
                     </li>
                 </div>
@@ -37,8 +37,8 @@
                     <button @click="showAnswerF" class="btn-solution">View Solutions<i class="fas fa-check-circle"></i></button>
                 </p>
             </div>
-            <div v-if="showAnswerModal">
-                <AnswerModal :answer="question.answer" @close="showAnswerF"/>
+            <div v-show="showAnswerModal">
+                <AnswerModal :answer="question.answer" @closeSolution="showAnswerF"/>
             </div>
         </div>
     </Card>
@@ -54,119 +54,35 @@ import Showcase from '@/components/Showcase'
 import Card from '@/components/Card'
 import AnswerModal from '@/components/AnswerModal'
 import { ref } from '@vue/reactivity'
+import getOrganicChemistryQuestion from '@/composables/getQuestions'
 
 export default {
-  components: {
-    Header,
-    Footer,
-    Showcase,
-    Card,
-    AnswerModal
-  },
-  data() {
-      return {
-          questionArray: Object,
-          questions: [
-                {
-                    id: 1,
-                    question: 'Which of these is the product formed between CH3COOH AND CH3CH2CH2OH ?',
-                    options: [
-                        { option: 'Ethyl Propanoate', answer: false },
-                        { option: 'Propyl Ethanoate', answer: false },
-                        { option: 'Butyl Propanoate', answer: true },
-                        { option: 'Propyl Butanoate', answer: false }
-                    ],
-                    answer: 'This is the correct answer for 1'
-                },
-                {
-                    id: 2,
-                    question: 'Which of the following is not a characteristics of Organic Compounds?',
-                    options: [
-                        { option: 'They are generally volatile and inflammable', answer: false },
-                        { option: 'They may be in gaseous,liquid and solid state', answer: false },
-                        { option: 'They are mostly ionic compounds', answer: false },
-                        { option: 'They do not conduct electricity because of the absence of free ions', answer: false }
-                    ],
-                    answer: 'This is the correct answer for 2'
-                },
-                {
-                    id: 3,
-                    question: 'The compound produced by the oxidation of 2-methylpropanol is?',
-                    options: [
-                        { option: 'Aldehyde', answer: false },
-                        { option: 'Carbide', answer: false },
-                        { option: 'Alkanoic', answer: false },
-                        { option: 'Ketone', answer: false }
-                    ],
-                    answer: 'This is the correct answer for 3'
-                },
-                {
-                    id: 4,
-                    question: 'Which of these is a derivative of carboxylic acid',
-                    options: [
-                        { option: 'Amide', answer: false },
-                        { option: 'Amine', answer: false },
-                        { option: 'Sulphiones', answer: false },
-                        { option: 'Carbene', answer: false }
-                    ],
-                    answer: 'This is the correct answer for 4'
-                },
-                {
-                    id: 5,
-                    question: 'The molecular formular of Pentane',
-                    options: [
-                        { option: 'CH3CH2CH2CH3', answer: false },
-                        { option: 'CH3CH2CH2CH(CH3)CH3', answer: false },
-                        { option: 'CH3CH2CH2CH2CH3', answer: false },
-                        { option: 'CH2CH2CH2CH2CH3', answer: false }
-                    ],
-                    answer: 'This is the correct answer for 5'
-                }
-                //   {
-                //       id: 1,
-                //       question: '',
-                //       options: [
-                //           { option: '', answer: false },
-                //           { option: '', answer: false },
-                //           { option: '', answer: false },
-                //           { option: '', answer: false }
-                //       ]
-                //   }
-            ]
-        }
-      
+    components: {
+        Header,
+        Footer,
+        Showcase,
+        Card,
+        AnswerModal
     },
-    methods: {},
     setup() {
+        
+        //  CHECK SELECTED OPTION
+        const { questions, questionArray, option, selectedAnswer } = getOrganicChemistryQuestion()
+
         //  SHOW ANSWER MODAL
         const showAnswerModal = ref(false)
 
         const showAnswerF = () => {
-            showAnswerModal.value = !showAnswerModal.value
-        }
-
-        //  SHOW CORRECT OPTION
-        const option = ref(null)
-        const question = ref(null)
-        const questionArray = ref(null)
-        const findQuestion = ref(null)
-        const selectedAnswer = (option) => {
-            console.log(option)
-            const findQuestion = () => {
-                return question.options.option === option
+            if (questionArray != null) {
+                showAnswerModal.value = !showAnswerModal.value
             }
-            questionArray = questions.find((option) => {
-                question.options.option === option
-            })
-            console.log(questionArray)
         }
 
         return {
             showAnswerModal,
             showAnswerF,
-            question,
-            findQuestion,
             selectedAnswer,
+            questions,
             questionArray
         }
     }

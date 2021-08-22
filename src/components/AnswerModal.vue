@@ -1,15 +1,12 @@
 <template>
     <div class="modal-backdrop" @click.self="closeAnswerModal">
-        <Card>
-            <h2 class="my-2">Solution</h2>
-            Spike
-            <slot>
-                <p>{{ answer }}</p>
-            </slot>
-            <button class="btn-close">
+        <div class="card">
+            <h2 class="solution-head sm-1">Solution</h2>
+            <p class="solution-main">{{ answer }}</p>
+            <button class="btn-close" @click="closeAnswerModal">
                 <i class="far fa-times-circle fa-3x"></i>
             </button>
-        </Card>
+        </div>
     </div>
 </template>
 
@@ -24,16 +21,28 @@ export default {
     },
     methods: {
         closeAnswerModal() {
-            this.$emit('close')
+            this.$emit('closeSolution')
         }
     }
 }
 </script>
 
 <style scoped>
-.modal-backdrop {
+.card {
+    margin: auto;
+    padding: 20px;
     width: 100%;
-    height: 100%;
+    max-width: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    animation: zoomIn 0.5s ease-in-out;
+}
+
+.modal-backdrop {
+    padding: 0 20px;
+    width: 100%;
+    height: 100%; 
     position: fixed;
     top: 0;
     left: 0;
@@ -41,17 +50,18 @@ export default {
     /* align-items: center; */
     /* justify-content: center; */
     background: rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
     z-index: 10;
 }
 
-.card {
-    margin: auto;
-    max-width: 500px;
-    position: relative;
+.solution-head {
+    text-align: center;
+    color:  rgb(22, 139, 6);
 }
 
-h2 {
-    color:  rgb(22, 139, 6);
+.solution-main {
+    margin-top: 40px;
+    text-align: left;
 }
 
 .btn-close {
