@@ -22,7 +22,8 @@
                 <div 
                 v-for="option in question.options" 
                 :key="option.index"
-                class="question-option"
+                @click="selectedAnswer(option.option)"
+                :class="question-option"
                 >
                     <li>
                         {{ option.option }}
@@ -44,6 +45,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Showcase from '@/components/Showcase'
 import Card from '@/components/Card'
+import { ref } from '@vue/reactivity'
 
 export default {
   components: {
@@ -54,6 +56,7 @@ export default {
   },
   data() {
       return {
+          questionArray: Object,
           questions: [
                 {
                     id: 1,
@@ -118,6 +121,43 @@ export default {
             ]
         }
       
+    },
+    methods: {
+        // selectedAnswer(option) {
+        //     function findQuestion(question, option) {
+        //         return question.options.option === option
+        //     }
+        //     this.questionArray = this.questions.find(findQuestion)
+        //     console.log(this.questionArray)
+        //     // if (option == this.op) {
+                
+        //     // } else {
+                
+        //     // }
+        // }
+    },
+    setup() {
+        const option = ref(null)
+        const question = ref(null)
+        const questionArray = ref(null)
+        const findQuestion = ref(null)
+        const selectedAnswer = (option) => {
+            console.log(option)
+            const findQuestion = () => {
+                return question.options.option === option
+            }
+            questionArray = questions.find((option) => {
+                question.options.option === option
+            })
+            console.log(questionArray)
+        }
+
+        return {
+            question,
+            findQuestion,
+            selectedAnswer,
+            questionArray
+        }
     }
 }
 </script>

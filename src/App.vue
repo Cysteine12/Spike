@@ -405,7 +405,7 @@ margin: 0 3%;
 
 .stats,
 .question-template {
-    animation: slideInFromRight 1s ease-in;
+    animation: zoomIn 1s ease-in;
 }
 
         /* STATS */
@@ -447,7 +447,7 @@ margin: 0 3%;
 
 .question-template .card div ul .question-option {
     margin: 5px 15px 5px 5px;
-    padding: 10px 5px 10px 20px;
+    padding: 10px 5px 10px 30px;
     border: 1.5px solid #afafaf;
     border-radius: 5px;
     list-style-type: upper-alpha;
