@@ -17,7 +17,7 @@
           </a>
     </div>
     <div class="footer_base text-center">
-        <p>Developed By HelixCoders Innovation Copyright &copy; 2021. All Rights Reserved &#8739; Helix Blog is a
+        <p>Developed By HelixCoders Innovation Copyright &copy; 2021. All Rights Reserved &#8739; Spike is a
             platform designed by Baron and Cysteine</p>
     </div>
   </div>
