@@ -4,6 +4,7 @@ import PastQuestions from '@/views/PastQuestions/PastQuestions.vue'
 import PhysicalSciences from '@/views/PastQuestions/PhysicalSciences/PhysicalSciences.vue'
 import Chemistry from '@/views/PastQuestions/PhysicalSciences/Chemistry/Chemistry.vue'
 import OrganicChemistry from '@/views/PastQuestions/PhysicalSciences/Chemistry/OrganicChemistry.vue'
+import IndustrialChemistry from '@/views/PastQuestions/PhysicalSciences/Chemistry/IndustrialChemistry.vue'
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/past-questions/physical-sciences/organic-chemistry/:id',
     name: 'OrganicChemistry',
     component: OrganicChemistry
+  },
+  {
+    path: '/past-questions/physical-sciences/industrial-chemistry/:id',
+    name: 'IndustrialChemistry',
+    component: IndustrialChemistry
   }
 ]
 

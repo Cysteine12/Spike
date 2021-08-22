@@ -25,9 +25,9 @@
       </Card>
       <Card>
         <img src="@/assets/imgs/industrial.jpg" alt="Education">
-        <a href="">
+        <router-link :to="{ name: 'IndustrialChemistry', params: { id: 1 } }">
           <h3>INDUSTRIAL CHEMISTRY</h3>
-        </a>
+        </router-link>
       </Card>
       <Card>
         <img src="@/assets/imgs/polymer.jpg" alt="Education">
