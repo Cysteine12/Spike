@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         closeAnswerModal() {
-            this.emit('close')
+            this.$emit('close')
         }
     }
 }
