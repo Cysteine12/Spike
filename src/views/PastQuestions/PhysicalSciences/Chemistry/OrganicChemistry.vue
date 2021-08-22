@@ -15,15 +15,17 @@
     </h2>
 
     <Card v-for="question in questions" :key="question.id">
-        <h3>Q{{ question.id }}</h3>
+        <h3>
+            <span>Q{{ question.id }}.</span>
+        </h3>
         <div>
             <p>{{ question.question }}</p>
             <ul>
                 <div 
                 v-for="option in question.options" 
                 :key="option.index"
+                class="question-option"
                 @click="selectedAnswer(option.option)"
-                :class="question-option"
                 >
                     <li>
                         {{ option.option }}

@@ -439,6 +439,17 @@ margin: 0 3%;
     gap: 5px;
 }
 
+.question-template .card h3 {
+    margin-top: 10px;
+}
+
+.question-template .card h3 span {
+    padding: 4px 2px;
+    border-radius: 50%;
+    background: #b4b4b4;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
 .question-template .card p {
     margin: 10px 0;
     text-align: start;
