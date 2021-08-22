@@ -32,7 +32,7 @@ const routes = [
     component: Chemistry
   },
   {
-    path: '/past-questions/physical-sciences/organic-chemistry',
+    path: '/past-questions/physical-sciences/organic-chemistry/:id',
     name: 'OrganicChemistry',
     component: OrganicChemistry
   }

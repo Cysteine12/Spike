@@ -6,83 +6,28 @@
     <h2 class="question-heading text-center my-1">
         <router-link :to="{ name: 'PastQuestions' }">Past Questions</router-link>
         <i class="fas fa-angle-double-right"></i>
-        <router-link :to="{ name: 'PastQuestions' }">Physical Sciences</router-link>
+        <router-link :to="{ name: 'PhysicalSciences' }">Physical Sciences</router-link>
         <i class="fas fa-angle-double-right"></i>
-        Chemistry
+        <router-link :to="{ name: 'Chemistry' }">Chemistry</router-link>
     </h2>
     <h2 class="question-heading text-center my-1">
         ORGANIC CHEMISTRY
     </h2>
 
-    <Card>
-        <h3>Q1. </h3>
+    <Card v-for="question in questions" :key="question.id">
+        <h3>Q{{ question.id }}</h3>
         <div>
-            <p>Which of these is the product formed between CH3COOH AND CH3CH2CH2OH?</p>
+            <p>{{ question.question }}</p>
             <ul>
-                <li>Ethyl Propanoate</li>
-                <li>Propyl Ethanoate</li>
-                <li>Butyl Propanoate</li>
-                <li>Propyl Butanoate</li>
-            </ul>
-            <div class="solution">
-                <p><a href="">View Solutions<i class="fas fa-check-circle"></i></a></p>
-            </div>
-        </div>
-    </Card>
-    <Card>
-        <h3>Q2. </h3>
-        <div>
-            <p>Which of the following is not a characteristics of Organic Compounds?</p>
-            <ul>
-                <li>They are generally volatile and inflammable</li>
-                <li>They may be in gaseous,liquid and solid state </li>
-                <li>They are mostly ionic compounds</li>
-                <li>They do not conduct electricity becaue of the absence of free ions</li>
-            </ul>
-            <div class="solution">
-                <p><a href="">View Solutions<i class="fas fa-check-circle"></i></a></p>
-            </div>
-        </div>
-    </Card>
-    <Card>
-        <h3>Q3. </h3>
-        <div>
-            <p>The compound produced by the oxidation of 2-methylpropanol is?</p>
-            <ul>
-                <li>Aldehyde</li>
-                <li>Carbide</li>
-                <li>Alkanoic</li>
-                <li>Ketone</li>
-            </ul>
-            <div class="solution">
-                <p><a href="">View Solutions<i class="fas fa-check-circle"></i></a></p>
-            </div>
-        </div>
-    </Card>
-    <Card>
-        <h3>Q4. </h3>
-        <div>
-            <p>Which of these is a derivative of carboxylic acid</p>
-            <ul>
-                <li>Amide</li>
-                <li>Amine</li>
-                <li>Sulphiones</li>
-                <li>Carbene</li>
-            </ul>
-            <div class="solution">
-                <p><a href="">View Solutions<i class="fas fa-check-circle"></i></a></p>
-            </div>
-        </div>
-    </Card>
-    <Card>
-        <h3>Q5. </h3>
-        <div>
-            <p>The molecular formular of Pentane</p>
-            <ul>
-                <li>CH3CH2CH2CH3</li>
-                <li>CH3CH2CH2CH(CH3)CH3</li>
-                <li>CH3CH2CH2CH2CH3</li>
-                <li>CH2CH2CH2CH2CH3</li>
+                <div 
+                v-for="option in question.options" 
+                :key="option.index"
+                class="question-option"
+                >
+                    <li>
+                        {{ option.option }}
+                    </li>
+                </div>
             </ul>
             <div class="solution">
                 <p><a href="">View Solutions<i class="fas fa-check-circle"></i></a></p>
@@ -106,7 +51,74 @@ export default {
     Footer,
     Showcase,
     Card
-  }
+  },
+  data() {
+      return {
+          questions: [
+                {
+                    id: 1,
+                    question: 'Which of these is the product formed between CH3COOH AND CH3CH2CH2OH ?',
+                    options: [
+                        { option: 'Ethyl Propanoate', answer: false },
+                        { option: 'Propyl Ethanoate', answer: false },
+                        { option: 'Butyl Propanoate', answer: true },
+                        { option: 'Propyl Butanoate', answer: false }
+                    ]
+                },
+                {
+                    id: 2,
+                    question: 'Which of the following is not a characteristics of Organic Compounds?',
+                    options: [
+                        { option: 'They are generally volatile and inflammable', answer: false },
+                        { option: 'They may be in gaseous,liquid and solid state', answer: false },
+                        { option: 'They are mostly ionic compounds', answer: false },
+                        { option: 'They do not conduct electricity because of the absence of free ions', answer: false }
+                    ]
+                },
+                {
+                    id: 3,
+                    question: 'The compound produced by the oxidation of 2-methylpropanol is?',
+                    options: [
+                        { option: 'Aldehyde', answer: false },
+                        { option: 'Carbide', answer: false },
+                        { option: 'Alkanoic', answer: false },
+                        { option: 'Ketone', answer: false }
+                    ]
+                },
+                {
+                    id: 4,
+                    question: 'Which of these is a derivative of carboxylic acid',
+                    options: [
+                        { option: 'Amide', answer: false },
+                        { option: 'Amine', answer: false },
+                        { option: 'Sulphiones', answer: false },
+                        { option: 'Carbene', answer: false }
+                    ]
+                },
+                {
+                    id: 5,
+                    question: 'The molecular formular of Pentane',
+                    options: [
+                        { option: 'CH3CH2CH2CH3', answer: false },
+                        { option: 'CH3CH2CH2CH(CH3)CH3', answer: false },
+                        { option: 'CH3CH2CH2CH2CH3', answer: false },
+                        { option: 'CH2CH2CH2CH2CH3', answer: false }
+                    ]
+                }
+                //   {
+                //       id: 1,
+                //       question: '',
+                //       options: [
+                //           { option: '', answer: false },
+                //           { option: '', answer: false },
+                //           { option: '', answer: false },
+                //           { option: '', answer: false }
+                //       ]
+                //   }
+            ]
+        }
+      
+    }
 }
 </script>
 

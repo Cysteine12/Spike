@@ -37,8 +37,10 @@
 }
 
 .btn:hover {
+    transition: 0.5s ease-in-out;
     transform: scale(0.90); 
-    transition-duration: 0.5s;
+    background: #fff;
+    color: var(--primary-color);
 }
 
 /* Backgrounds & Coloured buttons */
@@ -403,7 +405,7 @@ margin: 0 3%;
 
 .stats,
 .question-template {
-    animation: slideInFromBottom 1s ease-in;
+    animation: slideInFromRight 1s ease-in;
 }
 
         /* STATS */
@@ -434,7 +436,37 @@ margin: 0 3%;
     max-width: 700px;
     display: grid;
     grid-template-columns: 10% 90%;
-    gap: 20px;
+    gap: 5px;
+}
+
+.question-template .card p {
+    margin: 10px 0;
+    text-align: start;
+    font-weight: bold;
+}
+
+.question-template .card div ul .question-option {
+    margin: 5px 15px 5px 5px;
+    padding: 10px 5px 10px 20px;
+    border: 1.5px solid #afafaf;
+    border-radius: 5px;
+    list-style-type: upper-alpha;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.question-template .card div ul .question-option:hover {
+    border-color: var(--primary-color);
+}
+
+
+.question-template .card div ul .correct-answer {
+    border: 1.5px solid #00a023;
+}
+
+.question-template .card div ul .wrong-answer {
+    border: 1.5px solid #da0000;
 }
 
 .solution a{
@@ -476,6 +508,10 @@ transform:scale(1.2) ;
     }
     .question-template{
       font-size: 10px;
+    }
+    .stats,
+    .question-template {
+        animation: slideInFromBottom 1s ease-in;
     }
 }
 
@@ -683,10 +719,4 @@ footer p{
     color: rgb(43, 41, 41);
 }
 
-.card p{
-  text-align: start;
-}
-.card ul li{
-  list-style-type: upper-alpha;
-}
 </style>
