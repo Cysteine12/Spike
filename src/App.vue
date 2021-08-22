@@ -444,7 +444,7 @@ margin: 0 3%;
 }
 
 .question-template .card h3 span {
-    padding: 4px 2px;
+    padding: 5px 2px;
     border-radius: 50%;
     background: #b4b4b4;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
