@@ -457,8 +457,8 @@ margin: 0 3%;
 }
 
 .question-template .card div ul .question-option {
-    margin: 5px 15px 5px 5px;
-    padding: 10px 5px 10px 30px;
+    margin: 5px 15px 15px 5px;
+    padding: 10px 5px 10px 35px;
     border: 1.5px solid #afafaf;
     border-radius: 5px;
     list-style-type: upper-alpha;
@@ -524,6 +524,9 @@ transform:scale(1.2) ;
     .question-template {
         animation: slideInFromBottom 1s ease-in;
     }
+    .question-template .card div ul .question-option {
+        margin: 5px 15px 5px 5px;
+}
 }
 
 @media(max-width: 500px) {
