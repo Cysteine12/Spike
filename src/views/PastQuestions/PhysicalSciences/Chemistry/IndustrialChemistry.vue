@@ -11,7 +11,7 @@
         <router-link :to="{ name: 'Chemistry' }">Chemistry</router-link>
     </h2>
     <h2 class="question-heading text-center my-1">
-        ORGANIC CHEMISTRY
+        INDUSTRIAL CHEMISTRY
     </h2>
 
     <Card v-for="question in questions" :key="question.id">
