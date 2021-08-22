@@ -29,10 +29,10 @@ export default {
 
     <style scoped>
 .card {
-    margin: auto;
+    margin: 0 30px;
     padding: 20px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -41,7 +41,6 @@ export default {
 }
 
 .modal-backdrop {
-    padding: 0 20px;
     width: 100%;
     height: 100%; 
     position: fixed;
@@ -53,6 +52,7 @@ export default {
     background: rgba(0, 0, 0, 0.1);
     line-height: 1.6;
     z-index: 10;
+    transition: 1s ease-in-out;
 }
 
 .solution-head {
