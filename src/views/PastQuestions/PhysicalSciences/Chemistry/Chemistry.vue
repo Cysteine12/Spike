@@ -12,37 +12,37 @@
     </h2>
     <div class="grid grid-3">
       <Card>
-        <img src="@/assets/imgs/science.jpg" alt="Education">
+        <img src="@/assets/imgs/physical.jpg" alt="Education">
         <a href="">
           <h3>PHYSICAL CHEMISTRY</h3>
         </a>
       </Card>
       <Card>
-        <img src="@/assets/imgs/campus.jpg" alt="Education">
+        <img src="@/assets/imgs/organic.jpg" alt="Education">
         <router-link :to="{ name: 'OrganicChemistry', params: { id: 1 } }">
           <h3>ORGANIC CHEMISTRY</h3>
         </router-link>
       </Card>
       <Card>
-        <img src="@/assets/imgs/image.jpg" alt="Education">
+        <img src="@/assets/imgs/industrial.jpg" alt="Education">
         <a href="">
           <h3>INDUSTRIAL CHEMISTRY</h3>
         </a>
       </Card>
       <Card>
-        <img src="@/assets/imgs/image-1.jpg" alt="Education">
+        <img src="@/assets/imgs/polymer.jpg" alt="Education">
         <a href="">
           <h3>POLYMER CHEMISTRY</h3>
         </a>
       </Card>
       <Card>
-        <img src="@/assets/imgs/image-1.jpg" alt="Education">
+        <img src="@/assets/imgs/inorganic.jpg" alt="Education">
         <a href="">
           <h3>INORGANIC CHEMISTRY</h3>
         </a>
       </Card>
       <Card>
-        <img src="@/assets/imgs/image-1.jpg" alt="Education">
+        <img src="@/assets/imgs/analytical.jpg" alt="Education">
         <a href="">
           <h3>ANALYTICAL CHEMISTRY</h3>
         </a>
