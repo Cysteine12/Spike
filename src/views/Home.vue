@@ -17,13 +17,13 @@
       <Card>
         <img src="../assets/imgs/campus.jpg" alt="Past Question">
         <router-link :to="{ name: 'PastQuestions' }">
-          <h3>PAST QUESTIONS</h3>
+          <h3>QUIZ</h3>
         </router-link>
       </Card>
       <Card>
         <img src="../assets/imgs/entertain.jpg" alt="Quiz and Answer">
         <a href="">
-          <h3>QUIZ</h3>
+          <h3>PAST QUESTIONS</h3>
         </a>
       </Card>
     </div>
