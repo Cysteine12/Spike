@@ -488,7 +488,7 @@ margin: 0 3%;
     float: right;
     font-weight: 500;
     transition: transform 0.5s ease-in-out;
-    cursor: p;
+    cursor: pointer;
 }
 .solution .btn-solution:hover{
 transform:scale(1.2) ;

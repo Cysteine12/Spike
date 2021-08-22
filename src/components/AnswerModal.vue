@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style scoped>
+    <style scoped>
 .card {
     margin: auto;
     padding: 20px;
@@ -36,6 +36,7 @@ export default {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
     animation: zoomIn 0.5s ease-in-out;
 }
 
@@ -47,8 +48,8 @@ export default {
     top: 0;
     left: 0;
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
     background: rgba(0, 0, 0, 0.1);
     line-height: 1.6;
     z-index: 10;
@@ -73,5 +74,6 @@ export default {
     position: absolute;
     top: -18px;
     right: -18px;
+    cursor: pointer;
 }
 </style>
