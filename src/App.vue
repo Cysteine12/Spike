@@ -436,7 +436,7 @@ margin: 0 3%;
     max-width: 700px;
     display: grid;
     grid-template-columns: 10% 90%;
-    gap: 5px;
+    gap: 10px;
 }
 
 .question-template .card h3 {
@@ -480,14 +480,17 @@ margin: 0 3%;
     border: 1.5px solid #da0000;
 }
 
-.solution a{
+.solution .btn-solution {
+    border: 0;
     font-size: 12px;
     color:#34d015;
+    background: #fff;
     float: right;
     font-weight: 500;
     transition: transform 0.5s ease-in-out;
+    cursor: p;
 }
-.solution a:hover{
+.solution .btn-solution:hover{
 transform:scale(1.2) ;
 }
 .solution p{

@@ -33,7 +33,12 @@
                 </div>
             </ul>
             <div class="solution">
-                <p><a href="">View Solutions<i class="fas fa-check-circle"></i></a></p>
+                <p>
+                    <button @click="showAnswerF" class="btn-solution">View Solutions<i class="fas fa-check-circle"></i></button>
+                </p>
+            </div>
+            <div v-if="showAnswerModal">
+                <AnswerModal :answer="question.answer" @close="showAnswerF"/>
             </div>
         </div>
     </Card>
@@ -47,6 +52,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Showcase from '@/components/Showcase'
 import Card from '@/components/Card'
+import AnswerModal from '@/components/AnswerModal'
 import { ref } from '@vue/reactivity'
 
 export default {
@@ -54,7 +60,8 @@ export default {
     Header,
     Footer,
     Showcase,
-    Card
+    Card,
+    AnswerModal
   },
   data() {
       return {
@@ -68,7 +75,8 @@ export default {
                         { option: 'Propyl Ethanoate', answer: false },
                         { option: 'Butyl Propanoate', answer: true },
                         { option: 'Propyl Butanoate', answer: false }
-                    ]
+                    ],
+                    answer: 'This is the correct answer for 1'
                 },
                 {
                     id: 2,
@@ -78,7 +86,8 @@ export default {
                         { option: 'They may be in gaseous,liquid and solid state', answer: false },
                         { option: 'They are mostly ionic compounds', answer: false },
                         { option: 'They do not conduct electricity because of the absence of free ions', answer: false }
-                    ]
+                    ],
+                    answer: 'This is the correct answer for 2'
                 },
                 {
                     id: 3,
@@ -88,7 +97,8 @@ export default {
                         { option: 'Carbide', answer: false },
                         { option: 'Alkanoic', answer: false },
                         { option: 'Ketone', answer: false }
-                    ]
+                    ],
+                    answer: 'This is the correct answer for 3'
                 },
                 {
                     id: 4,
@@ -98,7 +108,8 @@ export default {
                         { option: 'Amine', answer: false },
                         { option: 'Sulphiones', answer: false },
                         { option: 'Carbene', answer: false }
-                    ]
+                    ],
+                    answer: 'This is the correct answer for 4'
                 },
                 {
                     id: 5,
@@ -108,7 +119,8 @@ export default {
                         { option: 'CH3CH2CH2CH(CH3)CH3', answer: false },
                         { option: 'CH3CH2CH2CH2CH3', answer: false },
                         { option: 'CH2CH2CH2CH2CH3', answer: false }
-                    ]
+                    ],
+                    answer: 'This is the correct answer for 5'
                 }
                 //   {
                 //       id: 1,
@@ -124,21 +136,16 @@ export default {
         }
       
     },
-    methods: {
-        // selectedAnswer(option) {
-        //     function findQuestion(question, option) {
-        //         return question.options.option === option
-        //     }
-        //     this.questionArray = this.questions.find(findQuestion)
-        //     console.log(this.questionArray)
-        //     // if (option == this.op) {
-                
-        //     // } else {
-                
-        //     // }
-        // }
-    },
+    methods: {},
     setup() {
+        //  SHOW ANSWER MODAL
+        const showAnswerModal = ref(false)
+
+        const showAnswerF = () => {
+            showAnswerModal.value = !showAnswerModal.value
+        }
+
+        //  SHOW CORRECT OPTION
         const option = ref(null)
         const question = ref(null)
         const questionArray = ref(null)
@@ -155,6 +162,8 @@ export default {
         }
 
         return {
+            showAnswerModal,
+            showAnswerF,
             question,
             findQuestion,
             selectedAnswer,
