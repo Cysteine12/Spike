@@ -49,6 +49,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: auto;
     background: rgba(0, 0, 0, 0.1);
     line-height: 1.6;
     z-index: 10;
@@ -58,11 +59,13 @@ export default {
 .solution-head {
     text-align: center;
     color:  rgb(22, 139, 6);
+    position: static;
 }
 
 .solution-main {
     margin-top: 40px;
     text-align: left;
+    position: static;
 }
 
 .btn-close {
